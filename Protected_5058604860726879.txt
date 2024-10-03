@@ -1,11 +1,4 @@
-                                                                                            
-                                                                           
-                                                                           
-  88bd8b,d88b  d8888b  d8888b   88bd88b  .d888b, d8888b d8888b    ?88   d8P
-  88P'`?8P'?8bd8P' ?88d8P' ?88  88P' ?8b ?8b,   d8b_,dPd8P' `P    d88  d8P'
- d88  d88  88P88b  d8888b  d88 d88   88P   `?8b 88b    88b        ?8b ,88' 
-d88' d88'  88b`?8888P'`?8888P'd88'   88b`?888P' `?888P'`?888P'    `?888P'  
-   then                                                                        
+                                                                        
   print("executed SUSSCEFULLY PROTECTED BY MOONSEC HAHA") after then
  end
 end
