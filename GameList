@@ -1,4 +1,2 @@
--- idea Got From Developers Speed X
-
 getgenv().Games = {
-  [Unknown Place ID] = "???", -- Unknown
+  [142823291] = "???", -- Murderer Mystery 2
