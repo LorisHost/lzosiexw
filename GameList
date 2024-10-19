@@ -1,3 +1,3 @@
-getgenv().Games = {
+getgenv().PlaceId = {
   [142823291] = 'https://raw.githubusercontent.com/LorisHost/Files/refs/heads/main/Murderer%20Mystery%202.lua',
 }
