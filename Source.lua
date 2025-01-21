@@ -29,19 +29,7 @@ local TS = game:GetService("TweenService")
 local TXS = game:GetService("TextService")
 local HS = game:GetService("HttpService")
 local CG = game:GetService("CoreGui")
-local InputService = game:GetService("UserInputService")
-
-InputService.InputBegan:Connect(function(input)
-  if input.UserInputType == Enum.UserInputType.Touch then
-    -- Handle touch began event
-  end
-end)
-
-InputService.InputEnded:Connect(function(input)
-  if input.UserInputType == Enum.UserInputType.Touch then
-    -- Handle touch ended event
-  end
-end)
+local UIS = game:GetService("UserInputService")
 
 -- Variables
 
