@@ -42,7 +42,7 @@ local SelfModules = {
 }
 local Storage = { Connections = {}, Tween = { Cosmetic = {} } }
 
-local ListenForInput = true
+local ListenForInput = false
 
 -- Directory
 
