@@ -29,21 +29,20 @@ local TS = game:GetService("TweenService")
 local TXS = game:GetService("TextService")
 local HS = game:GetService("HttpService")
 local CG = game:GetService("CoreGui")
-local UIS = game:GetService("UserInputService")
+local InputService = game:GetService("UserInputService")
 
-function Library:ListenForInput(callback)
-    UIS.InputBegan:Connect(function(input, gameProcessed)
-        if not gameProcessed then
-            if input.UserInputType == Enum.UserInputType.Touch then
-                pcall(callback, "Touch", input)
-            elseif input.UserInputType == Enum.UserInputType.MouseButton1 then
-                pcall(callback, "Mouse", input)
-            elseif input.UserInputType == Enum.UserInputType.Keyboard then
-                pcall(callback, "Keyboard", input.KeyCode)
-            end
-        end
-    end)
-end
+InputService.InputBegan:Connect(function(input)
+  if input.UserInputType == Enum.UserInputType.Touch then
+    -- Handle touch began event
+  end
+end)
+
+InputService.InputEnded:Connect(function(input)
+  if input.UserInputType == Enum.UserInputType.Touch then
+    -- Handle touch ended event
+  end
+end)
+
 -- Variables
 
 local Player = Players.LocalPlayer
@@ -59,11 +58,34 @@ local ListenForInput = false
 
 -- Directory
 
-local Directory = SelfModules.Directory.Create({
-	["Vynixius UI Library"] = {
-		"Configs",
-	},
+local ScreenGui = SelfModules.UI.Create("ScreenGui", {
+	Name = "Vynixius UI Library",
+	ZIndexBehavior = Enum.ZIndexBehavior.Sibling,
 })
+
+local InputService = game:GetService("UserInputService")
+
+local function isTouchWithinScreenGui(position)
+  -- Check if the touch position is within the ScreenGui's absolute bounds
+  local absolutePosition = ScreenGui.AbsolutePosition
+  local size = ScreenGui.AbsoluteSize
+
+  return (position.X >= absolutePosition.X and position.X <= absolutePosition.X + size.X) and 
+         (position.Y >= absolutePosition.Y and position.Y <= absolutePosition.Y + size.Y)
+end
+
+InputService.InputBegan:Connect(function(input)
+  if input.UserInputType == Enum.UserInputType.Touch and isTouchWithinScreenGui(input.Position) then
+    -- Handle touch began event within ScreenGui
+  end
+end)
+
+InputService.InputEnded:Connect(function(input)
+  if input.UserInputType == Enum.UserInputType.Touch and isTouchWithinScreenGui(input.Position) then
+    -- Handle touch ended event within ScreenGui
+  end
+end)
+
 
 Library.Settings.ConfigPath = Directory.Configs
 
