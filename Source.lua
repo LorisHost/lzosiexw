@@ -24,13 +24,26 @@ local Library = {
 -- Services
 
 local Players = game:GetService("Players")
-local UIS = game:GetService("UserInputService")
 local RS = game:GetService("RunService")
 local TS = game:GetService("TweenService")
 local TXS = game:GetService("TextService")
 local HS = game:GetService("HttpService")
 local CG = game:GetService("CoreGui")
+local UIS = game:GetService("UserInputService")
 
+function Library:ListenForInput(callback)
+    UIS.InputBegan:Connect(function(input, gameProcessed)
+        if not gameProcessed then
+            if input.UserInputType == Enum.UserInputType.Touch then
+                pcall(callback, "Touch", input)
+            elseif input.UserInputType == Enum.UserInputType.MouseButton1 then
+                pcall(callback, "Mouse", input)
+            elseif input.UserInputType == Enum.UserInputType.Keyboard then
+                pcall(callback, "Keyboard", input.KeyCode)
+            end
+        end
+    end)
+end
 -- Variables
 
 local Player = Players.LocalPlayer
