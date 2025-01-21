@@ -51,29 +51,6 @@ local ScreenGui = SelfModules.UI.Create("ScreenGui", {
 	ZIndexBehavior = Enum.ZIndexBehavior.Sibling,
 })
 
-local InputService = game:GetService("UserInputService")
-
-local function isTouchWithinScreenGui(position)
-  -- Check if the touch position is within the ScreenGui's absolute bounds
-  local absolutePosition = ScreenGui.AbsolutePosition
-  local size = ScreenGui.AbsoluteSize
-
-  return (position.X >= absolutePosition.X and position.X <= absolutePosition.X + size.X) and 
-         (position.Y >= absolutePosition.Y and position.Y <= absolutePosition.Y + size.Y)
-end
-
-InputService.InputBegan:Connect(function(input)
-  if input.UserInputType == Enum.UserInputType.Touch and isTouchWithinScreenGui(input.Position) then
-    -- Handle touch began event within ScreenGui
-  end
-end)
-
-InputService.InputEnded:Connect(function(input)
-  if input.UserInputType == Enum.UserInputType.Touch and isTouchWithinScreenGui(input.Position) then
-    -- Handle touch ended event within ScreenGui
-  end
-end)
-
 
 Library.Settings.ConfigPath = Directory.Configs
 
